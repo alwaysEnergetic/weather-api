@@ -37,7 +37,6 @@ export default class CityWeather extends Component<CityWeatherProps, CityWeather
     const { city } = this.props;
     const { weatherResult, isLoading } = this.state;
 
-    console.log("-----result, loading-----", weatherResult, isLoading);
     return (
       <div>
         <h1>{city}</h1>

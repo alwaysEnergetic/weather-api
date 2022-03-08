@@ -11,7 +11,7 @@ export const CityWeather = (props: any) => {
   });
 
   useEffect(() => {
-    let sample = async () => {
+    const sample = async () => {
       setState({ ...state, isLoading: false });
       const result = await searchLocation(props.city);
       setState({ weatherResult: result, isLoading: true });
