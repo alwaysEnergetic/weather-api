@@ -7,7 +7,7 @@ export default function Footer() {
           target="_blank"
           href="https://github.com/alwaysEnergetic/coding-test-weather-api"
         >
-          John Chang @2022
+          John Chang @2022 March 8
         </a>
       </p>
     </>
