@@ -25,7 +25,8 @@ export const CityWeather = (props: any) => {
       `https://api.openweathermap.org/data/2.5/weather?q=${props.city}&appid=${API_KEY}`
     )
       .then((r) => r.json())
-      .then((result) => setState({ weatherResult: result, isLoading: true }));
+      .then((result) => setState({ weatherResult: result, isLoading: true }))
+      .catch((error) => console.log(error));
   });
 
   const { weatherResult, isLoading } = state;
