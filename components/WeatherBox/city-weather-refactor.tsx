@@ -1,6 +1,7 @@
 // eslint-disable @typescript-eslint/no-use-before-define
 import React, { FC, useState, useEffect } from "react";
-import { getIconUrl } from "../services/weather";
+import { getIconUrl, searchLocation } from "../../services/weather";
+import Loader from "../Loader/Loader";
 
 // to get api key: https://openweathermap.org/appid
 const API_KEY = "a256759540cfa9f237b08a1777849af3";
@@ -19,15 +20,7 @@ export const CityWeather = (props: any) => {
     weatherResult: null,
     isLoading: false,
   });
-
-  useEffect(() => {
-    fetch(
-      `https://api.openweathermap.org/data/2.5/weather?q=${props.city}&appid=${API_KEY}`
-    )
-      .then((r) => r.json())
-      .then((result) => setState({ weatherResult: result, isLoading: true }))
-      .catch((error) => console.log(error));
-  });
+  setState({ weatherResult: searchLocation(props.city), isLoading: true });
 
   const { weatherResult, isLoading } = state;
 
@@ -47,7 +40,7 @@ export const CityWeather = (props: any) => {
           {weatherResult.weather[0].main}
         </>
       ) : (
-        <h2>Loading...</h2>
+        <Loader />
       )}
     </div>
   );
