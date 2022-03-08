@@ -1,6 +1,6 @@
 import { WeatherLocation, WeatherConditions } from "../model/Weather";
 
-const API_KEY: string = process.env.REACT_APP_OPEN_WEATHER_API_KEY as string;
+const API_KEY = "a256759540cfa9f237b08a1777849af3";
 
 export async function searchLocation(
   city: string

@@ -22,8 +22,8 @@
     "node_modules"
   ],
   "include": [
-    "next-env.d.ts",
+    "next.config.ts",
     "**/*.ts",
     "**/*.tsx"
-  ]
+, "components/Loader/Loader.js"  ]
 }

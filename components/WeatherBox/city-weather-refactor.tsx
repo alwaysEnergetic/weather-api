@@ -3,9 +3,6 @@ import React, { FC, useState, useEffect } from "react";
 import { getIconUrl, searchLocation } from "../../services/weather";
 import Loader from "../Loader/Loader";
 
-// to get api key: https://openweathermap.org/appid
-const API_KEY = "a256759540cfa9f237b08a1777849af3";
-
 interface CityWeatherProps {
   city: string;
 }
@@ -20,7 +17,15 @@ export const CityWeather = (props: any) => {
     weatherResult: null,
     isLoading: false,
   });
-  setState({ weatherResult: searchLocation(props.city), isLoading: true });
+
+  useEffect(() => {
+    let sample = async () => {
+      setState({ ...state, isLoading: false });
+      const result = await searchLocation(props.city);
+      setState({ weatherResult: result, isLoading: true });
+    };
+    sample();
+  }, [props]);
 
   const { weatherResult, isLoading } = state;
 
@@ -29,15 +34,21 @@ export const CityWeather = (props: any) => {
       <h1>{props.city}</h1>
       {isLoading === true ? (
         <>
-          <div>
-            Temperature: {KtoF(weatherResult.main.temp).toFixed(0)} &#8457;
-          </div>
-          <div>Descripiton: {weatherResult.weather[0].description}</div>
-          <img
-            src={getIconUrl(weatherResult.weather[0].icon)}
-            alt={weatherResult.weather[0].main}
-          />{" "}
-          {weatherResult.weather[0].main}
+          {state.weatherResult ? (
+            <>
+              <div>
+                Temperature: {KtoF(weatherResult.main.temp).toFixed(0)} &#8457;
+              </div>
+              <div>Descripiton: {weatherResult.weather[0].description}</div>
+              <img
+                src={getIconUrl(weatherResult.weather[0].icon)}
+                alt={weatherResult.weather[0].main}
+              />{" "}
+              {weatherResult.weather[0].main}
+            </>
+          ) : (
+            <div>Unable to find location!</div>
+          )}
         </>
       ) : (
         <Loader />

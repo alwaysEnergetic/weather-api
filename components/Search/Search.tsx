@@ -1,7 +1,8 @@
 import { useState } from "react";
+import CityWeather from "../WeatherBox/city-weather-refactor";
 
-export default function Search({ setIsLoading }) {
-  const [city, setCity] = (useState < string) | (null > null);
+export default function Search(props : any) {
+  const [city, setCity] = useState<string | null>(null);
   return (
     <div className="py-2">
       <form
@@ -10,7 +11,7 @@ export default function Search({ setIsLoading }) {
           e.preventDefault();
           const formdata = new FormData(e.currentTarget);
           setCity(formdata.get("city").toString());
-          setIsLoading(true);
+          props.setIsLoading(true);
         }}
       >
         <span>Weather Search:</span>{" "}

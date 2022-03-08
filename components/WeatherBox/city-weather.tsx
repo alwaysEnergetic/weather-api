@@ -13,7 +13,7 @@ interface CityWeatherState {
   isLoading: boolean;
 }
 
-export class CityWeather extends Component<CityWeatherProps, CityWeatherState> {
+export default class CityWeather extends Component<CityWeatherProps, CityWeatherState> {
   public constructor(props: any) {
     super(props);
     this.state = {

@@ -1,7 +1,6 @@
 import Head from "next/head";
 import Search from "../components/Search/Search";
 import Loader from "../components/Loader/Loader";
-import { CityWeather } from "../components/WeatherBox/city-weather-refactor";
 
 export default function IndexPage(props: any) {
   return (
@@ -10,14 +9,14 @@ export default function IndexPage(props: any) {
         <title>Weather</title>
       </Head>
       <main>
-        {props.isLoading ? (
+        {/* {props.isLoading ? (
           <Loader />
         ) : (
           <>
             <Search setIsLoading={props.setIsLoading} />
-            <CityWeather />
           </>
-        )}
+        )} */}
+         <Search setIsLoading={props.setIsLoading} />
       </main>
     </div>
   );
