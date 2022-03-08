@@ -7,7 +7,7 @@ import type { AppProps } from "next/app";
 function MyApp({ Component, pageProps }: AppProps) {
   const [isLoading, setIsLoading] = useState(false);
   return (
-    <>
+    <div className="h-screen bg-mainBackground">
       <Header />
       <Component
         {...pageProps}
@@ -15,7 +15,7 @@ function MyApp({ Component, pageProps }: AppProps) {
         setIsLoading={setIsLoading}
       />
       <Footer />
-    </>
+    </div>
   );
 }
 

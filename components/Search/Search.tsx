@@ -4,7 +4,7 @@ import CityWeather from "../WeatherBox/city-weather-refactor";
 export default function Search(props: any) {
   const [city, setCity] = useState<string | null>(null);
   return (
-    <div className="py-2">
+    <div className="py-12">
       <form
         className="flex items-center justify-center"
         onSubmit={(e) => {
@@ -14,15 +14,16 @@ export default function Search(props: any) {
           props.setIsLoading(true);
         }}
       >
-        <span>Weather Search:</span>{" "}
+        <span className="text-4xl font-semibold text-center">Weather Search:</span>{" "}
         <input
           data-testid="weather-input"
-          className="ml-2 border px-2 py-1 border-black"
+          className="ml-2 border-none h-15 text-3xl w-80 p-4 rounded-l-xl shadow-md"
           type="text"
           name="city"
         />
-        <button className="ml-2 text-sm border rounded-lg p-2" type="submit">
-          Submit
+
+        <button className="border-none h-15 text-3xl p-4 rounded-r-xl font-semibold text-1xl bg-buttonColor" type="submit">
+          SUBMIT
         </button>
       </form>
 
