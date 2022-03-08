@@ -1,7 +1,7 @@
 import { useState } from "react";
 import CityWeather from "../WeatherBox/city-weather-refactor";
 
-export default function Search(props : any) {
+export default function Search(props: any) {
   const [city, setCity] = useState<string | null>(null);
   return (
     <div className="py-2">
@@ -9,8 +9,8 @@ export default function Search(props : any) {
         className="flex items-center justify-center"
         onSubmit={(e) => {
           e.preventDefault();
-          const formdata = new FormData(e.currentTarget);
-          setCity(formdata.get("city").toString());
+          const formdata: FormData = new FormData(e.currentTarget);
+          setCity(formdata.get("city")!.toString());
           props.setIsLoading(true);
         }}
       >

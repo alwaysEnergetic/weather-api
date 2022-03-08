@@ -1,4 +1,4 @@
-import { WeatherLocation, WeatherConditions } from "../model/Weather";
+import { WeatherLocation } from "../model/Weather";
 
 const API_KEY = "a256759540cfa9f237b08a1777849af3";
 

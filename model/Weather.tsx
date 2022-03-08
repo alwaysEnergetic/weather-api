@@ -3,6 +3,13 @@ export interface WeatherLocation {
     name: string;
 }
 
+
+export interface CityWeatherState {
+    weatherResult: any;
+    isLoading: boolean;
+  }
+  
+
 export interface WeatherConditions {
     id: number;
     main: string;

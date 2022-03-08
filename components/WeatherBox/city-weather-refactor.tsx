@@ -1,16 +1,8 @@
 // eslint-disable @typescript-eslint/no-use-before-define
-import React, { FC, useState, useEffect } from "react";
-import { getIconUrl, searchLocation } from "../../services/weather";
+import React, { useState, useEffect } from "react";
 import Loader from "../Loader/Loader";
-
-interface CityWeatherProps {
-  city: string;
-}
-
-interface CityWeatherState {
-  weatherResult: any;
-  isLoading: boolean;
-}
+import { getIconUrl, searchLocation } from "../../services/weather";
+import { CityWeatherState } from "../../model/Weather";
 
 export const CityWeather = (props: any) => {
   const [state, setState] = useState<CityWeatherState>({
