@@ -1,5 +1,6 @@
 // eslint-disable @typescript-eslint/no-use-before-define
 import React, { FC, useState, useEffect } from "react";
+import { getIconUrl } from "../services/weather";
 
 // to get api key: https://openweathermap.org/appid
 const API_KEY = "a256759540cfa9f237b08a1777849af3";
@@ -38,6 +39,11 @@ export const CityWeather = (props: any) => {
             Temperature: {KtoF(weatherResult.main.temp).toFixed(0)} &#8457;
           </div>
           <div>Descripiton: {weatherResult.weather[0].description}</div>
+          <img
+            src={getIconUrl(weatherResult.weather[0].icon)}
+            alt={weatherResult.weather[0].main}
+          />{" "}
+          {weatherResult.weather[0].main}
         </>
       ) : (
         <h2>Loading...</h2>
@@ -48,6 +54,6 @@ export const CityWeather = (props: any) => {
 
 export const KtoF = (tempKevlin: number) => {
   return ((tempKevlin - 273.15) * 9) / 5 + 32;
-}
+};
 
-export default CityWeather
+export default CityWeather;
