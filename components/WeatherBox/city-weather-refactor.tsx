@@ -22,31 +22,6 @@ export const CityWeather = (props: any) => {
   const { weatherResult, isLoading } = state;
 
   return (
-    // <div>
-    //   <h1>{props.city}</h1>
-    //   {isLoading === true ? (
-    //     <>
-    // {state.weatherResult ? (
-    //   <>
-    //     <div>
-    //       Temperature: {KtoF(weatherResult.main.temp).toFixed(0)} &#8457;
-    //     </div>
-    //     <div>Descripiton: {weatherResult.weather[0].description}</div>
-    //     <img
-    //       src={getIconUrl(weatherResult.weather[0].icon)}
-    //       alt={weatherResult.weather[0].main}
-    //     />{" "}
-    //     {weatherResult.weather[0].main}
-    //   </>
-    // ) : (
-    //   <div>Unable to find location!</div>
-    // )}
-    //     </>
-    //   ) : (
-    //     <Loader />
-    //   )}
-    // </div>
-
     <div className="flex items-center justify-center">
       <div className="w-96 rounded-xl shadow-xl bg-white mt-20 text-center">
         {isLoading === true ? (
@@ -67,8 +42,10 @@ export const CityWeather = (props: any) => {
                 <div>
                   <p className="text-2xl font-semibold mt-6 opacity-80">
                     {" "}
-                    
-                    Temperature: <span className="text-7xl  font-black">{KtoF(weatherResult.main.temp).toFixed(0)} &#8457; </span>
+                    Temperature:{" "}
+                    <span className="text-7xl  font-black">
+                      {KtoF(weatherResult.main.temp).toFixed(0)} &#8457;{" "}
+                    </span>
                   </p>
                 </div>
               </>
