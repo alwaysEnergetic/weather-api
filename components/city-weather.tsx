@@ -10,13 +10,15 @@ interface CityWeatherProps {
 
 interface CityWeatherState {
   weatherResult: any;
+  isLoading: boolean;
 }
 
 export class CityWeather extends Component<CityWeatherProps, CityWeatherState> {
   public constructor(props: any) {
     super(props);
     this.state = {
-      weatherResult: null
+      weatherResult: null,
+      isLoading: false,
     };
   }
 
@@ -26,20 +28,29 @@ export class CityWeather extends Component<CityWeatherProps, CityWeatherState> {
       `https://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${API_KEY}`
     )
       .then((r) => r.json())
-      .then((result) => console.log(result));
+      .then((result) =>
+        this.setState({ weatherResult: result, isLoading: true })
+      );
   }
 
   public render() {
     const { city } = this.props;
-    const { weatherResult } = this.state;
+    const { weatherResult, isLoading } = this.state;
 
+    console.log("-----result, loading-----", weatherResult, isLoading);
     return (
       <div>
         <h1>{city}</h1>
-        {/* <div>
-          Temperature: {KtoF(weatherResult.main.temp).toFixed(0)} &#8457;
-        </div>
-        <div>Descripiton: {weatherResult.weather[0].description}</div> */}
+        {isLoading === true ? (
+          <>
+            <div>
+              Temperature: {KtoF(weatherResult.main.temp).toFixed(0)} &#8457;
+            </div>
+            <div>Descripiton: {weatherResult.weather[0].description}</div>
+          </>
+        ) : (
+          <h2>Loading...</h2>
+        )}
       </div>
     );
   }
