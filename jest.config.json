@@ -3,5 +3,6 @@
     "^.+\\.(ts|tsx)$": "babel-jest"
   },
   "testEnvironment": "jsdom",
-  "testPathIgnorePatterns": ["./.next/", "./node_modules/"]
+  "testPathIgnorePatterns": ["./.next/", "./node_modules/"],
+  "entities": ["src/model/**/!(*.test.ts)"]
 }

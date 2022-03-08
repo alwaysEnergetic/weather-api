@@ -34,7 +34,7 @@ export const CityWeather = (props: any) => {
                 <img
                   src={getIconUrl(weatherResult.weather[0].icon)}
                   alt={weatherResult.weather[0].main}
-                  className="object-contain h-32 w-32 m-auto"
+                  className="object-contain sm:h-32 h-16 sm:w-32 w-16 m-auto"
                 />{" "}
                 <p className="text-3xl font-semibold opacity-80">
                   {weatherResult.weather[0].description}

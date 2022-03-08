@@ -14,19 +14,15 @@ export default function Search(props: any) {
           props.setIsLoading(true);
         }}
       >
-        <span className="text-4xl font-semibold text-center">
-          Weather Search:
-        </span>{" "}
+        <span className="sm:text-3xl text-xl  font-semibold text-center">Weather Search:</span>{" "}
         <input
           data-testid="weather-input"
-          className="ml-2 border-none h-15 text-3xl w-80 p-4 rounded-l-xl shadow-md"
+          className="ml-2 border-none sm:h-15 sm:text-3xl text-1xl sm:w-80 w-11/12 p-4 rounded-l-xl shadow-md"
           type="text"
           name="city"
         />
-        <button
-          className="border-none h-15 text-3xl p-4 rounded-r-xl font-semibold text-1xl bg-buttonColor"
-          type="submit"
-        >
+
+        <button className="border-none sm:h-15 sm:text-3xl p-4 rounded-r-xl font-semibold text-1xl bg-buttonColor" type="submit">
           SUBMIT
         </button>
       </form>

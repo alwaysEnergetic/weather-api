@@ -5,7 +5,7 @@
     "dev": "next",
     "build": "next build",
     "start": "next start",
-    "test": "jest"
+    "test": "jest --config=jest.setup.ts"
   },
   "dependencies": {
     "@testing-library/react": "12.1.2",
