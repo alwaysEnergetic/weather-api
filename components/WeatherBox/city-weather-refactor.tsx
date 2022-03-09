@@ -50,7 +50,7 @@ export const CityWeather = (props: any) => {
                 </div>
               </>
             ) : (
-              <div>Unable to find location!</div>
+              <p className="text-lg">Unable to find location!</p>
             )}
             <footer className="text-right py-3 px-8 text-gray-500"></footer>
           </>
