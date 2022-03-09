@@ -1,8 +1,13 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import CityWeather from "../WeatherBox/city-weather-refactor";
 
 export default function Search(props: any) {
   const [city, setCity] = useState<string | null>(null);
+  const inputElement = useRef<null | HTMLElement>(null);
+  const focusInput = () => {
+      inputElement.current!.focus();
+  }
+
   return (
     <div className="py-12">
       <form
@@ -14,12 +19,13 @@ export default function Search(props: any) {
           props.setIsLoading(true);
         }}
       >
-        <span className="sm:text-3xl text-xl  font-semibold text-center">Weather Search:</span>{" "}
+        <span className="sm:text-3xl text-xl  font-semibold text-center" onClick={() => focusInput()}>Weather Search:</span>{" "}
         <input
           data-testid="weather-input"
           className="ml-2 border-none sm:h-15 sm:text-3xl text-2xl sm:w-80 w-11/12 p-4 rounded-l-xl shadow-md"
           type="text"
           name="city"
+          ref = {inputElement as any}
         />
 
         <button className="border-none sm:h-15 sm:text-3xl p-4 rounded-r-xl font-semibold text-2xl bg-buttonColor" type="submit">
@@ -35,3 +41,5 @@ export default function Search(props: any) {
     </div>
   );
 }
+
+
