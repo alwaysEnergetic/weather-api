@@ -7,9 +7,8 @@ export default function Footer() {
           className="text-yellow font-semibold hover:underline "
           target="_blank"
           href="https://github.com/alwaysEnergetic/coding-test-weather-api"
-        >
-        </a>{" "}
-        @2022 March 8
+        ></a>{" "}
+        @2022 Decemeber 29
       </p>
     </footer>
   );

@@ -44,3 +44,10 @@ App crashes
 
 2. Talk about your changes
    - For the refactor and other accompanying tasks, include any other thoughts, assumptions, or known compromises in how you approached the work.
+
+_______________________________________________________________
+
+First of all: npm run-script build
+Second: npm run start
+
+_______________________________________________________________
