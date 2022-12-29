@@ -1,8 +1,7 @@
-
 export const Loader = () => (
-  <div className="text-center my-10">
+  <div role="alert" className="text-center my-10" aria-label="loading-label">
     <svg
-      role="status"
+      role="alert"
       className="inline mr-2 w-7 h-7 text-gray-250 animate-spin dark:text-gray-600 fill-red stroke-1"
       viewBox="0 0 100 101"
       fill="none"
